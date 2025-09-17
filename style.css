@@ -1,0 +1,99 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  --body-bg: rgb(14,12,21);
+  margin: 0;
+  font-family: monospace;
+  color: lightgray;
+  background-color: var(--body-bg);
+}
+
+.container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header {
+  z-index: 999;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 30px;
+  text-transform: uppercase;
+  border: .5px solid rgb(110,101,114,.5);
+}
+
+.head-left {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.head-left img {
+  height: 45px;
+}
+
+header ul {
+  display: flex;
+  justify-content: space-between;
+  width: 30%;
+}
+
+header ul li { list-style-type: none; }
+
+header a {
+  font-weight: 900;
+  font-size: 15px;
+  color: gray;
+  text-decoration: none;
+  transition: .3s;
+  &:hover {
+    color: lightgray;
+    text-shadow: 0 0 15px rgba(255,255,255,.35);
+  }
+}
+
+.head-right {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+}
+
+.button-box {
+  position: relative;
+  width: 100px;
+  height: 45px;
+  background: linear-gradient(90deg, #00aaa7, #7f42a7, #6600c5, #1f2b9c, #2a46ff, #0099ff, #00aaa7);
+  background-size: 200%;
+  border-radius: 10px;
+  animation: animation-gradient 2.5s linear infinite;
+  clip-path: polygon(0 0, 80% 0, 100% 30%, 100% 80%, 100% 100%, 0 100%, 0% 80%, 0% 20%);
+}
+
+.head-right button {
+  position: absolute;
+  inset: 3px;
+  border: none;
+  text-transform: inherit;
+  color: lightgray;
+  background-color: var(--body-bg);
+  border-radius: 10px;
+  clip-path: inherit;
+  cursor: pointer;
+  transition: .3s;
+  &:hover { color: #7e00d2; }
+}
+
+@keyframes animation-gradient {
+  100% { background-position-x: 200%; }
+}
