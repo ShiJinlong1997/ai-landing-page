@@ -5,7 +5,7 @@
 }
 
 body {
-  --body-bg: rgb(14,12,21);
+  --body-bg: rgb(14, 12, 21);
   margin: 0;
   font-family: monospace;
   color: lightgray;
@@ -14,9 +14,8 @@ body {
 
 .container {
   position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  place-items: center;
 }
 
 header {
@@ -30,7 +29,7 @@ header {
   align-items: center;
   padding: 10px 30px;
   text-transform: uppercase;
-  border: .5px solid rgb(110,101,114,.5);
+  border: 0.5px solid rgb(110, 101, 114, 0.5);
 }
 
 .head-left {
@@ -49,17 +48,19 @@ header ul {
   width: 30%;
 }
 
-header ul li { list-style-type: none; }
+header ul li {
+  list-style-type: none;
+}
 
 header a {
   font-weight: 900;
   font-size: 15px;
   color: gray;
   text-decoration: none;
-  transition: .3s;
+  transition: 0.3s;
   &:hover {
     color: lightgray;
-    text-shadow: 0 0 15px rgba(255,255,255,.35);
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.35);
   }
 }
 
@@ -73,11 +74,29 @@ header a {
   position: relative;
   width: 100px;
   height: 45px;
-  background: linear-gradient(90deg, #00aaa7, #7f42a7, #6600c5, #1f2b9c, #2a46ff, #0099ff, #00aaa7);
+  background: linear-gradient(
+    90deg,
+    #00aaa7,
+    #7f42a7,
+    #6600c5,
+    #1f2b9c,
+    #2a46ff,
+    #0099ff,
+    #00aaa7
+  );
   background-size: 200%;
-  border-radius: 10px;
   animation: animation-gradient 2.5s linear infinite;
-  clip-path: polygon(0 0, 80% 0, 100% 30%, 100% 80%, 100% 100%, 0 100%, 0% 80%, 0% 20%);
+  border-radius: 10px;
+  clip-path: polygon(
+    0 0,
+    80% 0,
+    100% 30%,
+    100% 80%,
+    100% 100%,
+    0 100%,
+    0% 80%,
+    0% 20%
+  );
 }
 
 .head-right button {
@@ -90,10 +109,145 @@ header a {
   border-radius: 10px;
   clip-path: inherit;
   cursor: pointer;
-  transition: .3s;
-  &:hover { color: #7e00d2; }
+  transition: 0.3s;
+  &:hover {
+    color: #7e00d2;
+  }
 }
 
 @keyframes animation-gradient {
-  100% { background-position-x: 200%; }
+  100% {
+    background-position-x: 200%;
+  }
+}
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  width: 90%;
+  height: 150vh;
+}
+
+.hero > img {
+  position: absolute;
+}
+
+.hero-blur-img {
+  top: -15%;
+  width: 100%;
+}
+
+.hero-rings-img {
+  top: 90px;
+  height: 90%;
+  opacity: 0.4;
+}
+
+.hero-icons-img {
+  top: 8%;
+  width: 100%;
+}
+
+.hero h2 {
+  position: absolute;
+  top: 10%;
+  max-width: 1000px;
+  text-align: center;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-size: 50px;
+  color: #fff;
+}
+
+.hero h3 {
+  position: absolute;
+  top: 22%;
+  max-width: 700px;
+  text-align: center;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-size: 20px;
+  color: gray;
+}
+
+.hero button {
+  position: absolute;
+  top: 30%;
+  width: 140px;
+  height: 50px;
+  border: none;
+  text-transform: capitalize;
+  font-weight: bold;
+  color: #000;
+  background-color: #fff;
+  border-radius: 10px;
+  cursor: pointer;
+  clip-path: polygon(
+    0 0,
+    85% 0,
+    100% 35%,
+    100% 80%,
+    100% 100%,
+    0% 100%,
+    0% 80%,
+    0% 20%
+  );
+  transition: 0.3s;
+  &:hover {
+    opacity: 0.7;
+    color: #7e00d2;
+  }
+}
+
+.hero-img-box {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 1000px;
+  height: 550px;
+  margin-top: 250px;
+  background: linear-gradient(90deg,#00aaa7,#7f42a7,#6600c5,#1f2b9c,#2a46ff,#0099ff,#00aaa7);
+  background-size: 200%;
+  animation: animation-gradient 2.5s linear infinite;
+  border-radius: 50px;
+}
+
+.hero-img-box .robot-box {
+  overflow: hidden;
+  width: 98.5%;
+  height: 98.5%;
+  border-radius: inherit;
+}
+
+.hero-img-box .robot-box img {
+  width: 100%;
+  height: 100%;
+  mix-blend-mode: hard-light;
+}
+
+.hero-img-box .robot-box .robot-header {
+  width: 100%;
+  height: 30px;
+  background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+.hero-img-box :where(.element1, .element2) {
+  position: absolute;
+  top: 25%;
+  width: 25%;
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  & img {
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.432);
+  }
+}
+
+.hero-img-box .element1 { right: -15%; }
+.hero-img-box .element2 { left: -15%; }
+
+.parallax {
+  transition: transform 1s linear;
 }
