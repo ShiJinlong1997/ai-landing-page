@@ -243,6 +243,35 @@ header a {
   left: -15%;
 }
 
+.hero h4 {
+  position: absolute;
+  bottom: 12%;
+  color: gray;
+}
+
+.companies-list {
+  position: absolute;
+  bottom: 3%;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.companies-list .company {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.companies-list .company img {
+  height: 50px;
+}
+
+.companies-list .company p {
+  font-size: 30px;
+  font-weight: bold;
+}
+
 .parallax {
   transition: transform 1s linear;
 }
@@ -251,6 +280,7 @@ header a {
   position: fixed;
   top: 60%;
   width: 30%;
+  min-width: 500px;
   height: 60vh;
   opacity: 0;
   filter: blur(10px);
@@ -259,8 +289,8 @@ header a {
 .signin-page-box .close {
   --a: 1;
   position: absolute;
-  top: 3%;
-  right: 3%;
+  top: 20px;
+  right: 15px;
   border: none;
   font-size: 40px;
   line-height: .8;
@@ -346,5 +376,91 @@ header a {
     top: 60%;
     opacity: 0;
     filter: blur(10px);
+  }
+}
+
+/* tablet */
+@media screen and (width <= 1000px) {
+  header {
+    padding: 10px;
+  }
+
+  header ul {
+    min-width: 300px;
+  }
+
+  .head-right a {
+    margin-right: -20px;
+  }
+
+  .hero h1 {
+    font-size: 35px;
+  }
+
+  .hero-img-box {
+    height: 450px;
+  }
+
+  .hero-img-box .element1 {
+    right: 5%;
+    top: -12%;
+  }
+
+  .hero-img-box .element2 {
+    left: 5%;
+    top: 95%;
+  }
+
+  .companies-list .company img {
+    height: 35px;
+  }
+
+  .companies-list .company p {
+    font-size: 20px;
+  }
+
+  .signin-page-box {
+    width: 70%;
+  }
+}
+
+/* mobile */
+@media screen and (width <= 700px) {
+  header ul {
+    display: none;
+  }
+
+  .hero h1 {
+    top: 6%;
+  }
+
+  .hero h3 {
+    max-width: 350px;
+    font-size: 15px;
+    line-height: 22px;
+  }
+
+  .hero button {
+    top: 32%;
+  }
+
+  .hero-image-box .element1 {
+    top: -15%;
+    width: 140px;
+    height: 50px;
+  }
+
+  .hero-image-box .element2 {
+    width: 140px;
+    height: 50px;
+  }
+
+  .hero h4 {
+    bottom: 18%;
+  }
+
+  .companies-list {
+    flex-wrap: wrap;
+    max-width: 400px;
   }
 }
