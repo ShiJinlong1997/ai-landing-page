@@ -3,7 +3,18 @@
   padding: 0;
   margin: 0;
 }
-
+.top-right-corner {
+  clip-path: polygon(
+    0 0,
+    var(--corner-top, 80%) 0,
+    100% var(--corner-right, 30%),
+    100% 80%,
+    100% 100%,
+    0 100%,
+    0% 80%,
+    0% 20%
+  );
+}
 body {
   --body-bg: rgb(14, 12, 21);
   margin: 0;
@@ -29,7 +40,7 @@ header {
   align-items: center;
   padding: 10px 30px;
   text-transform: uppercase;
-  border: 0.5px solid rgb(110, 101, 114, 0.5);
+  border: .5px solid rgb(110, 101, 114, .5);
 }
 
 .head-left {
@@ -57,10 +68,10 @@ header a {
   font-size: 15px;
   color: gray;
   text-decoration: none;
-  transition: 0.3s;
+  transition: .3s;
   &:hover {
     color: lightgray;
-    text-shadow: 0 0 15px rgba(255, 255, 255, 0.35);
+    text-shadow: 0 0 15px rgba(255, 255, 255, .35);
   }
 }
 
@@ -87,16 +98,6 @@ header a {
   background-size: 200%;
   animation: animation-gradient 2.5s linear infinite;
   border-radius: 10px;
-  clip-path: polygon(
-    0 0,
-    80% 0,
-    100% 30%,
-    100% 80%,
-    100% 100%,
-    0 100%,
-    0% 80%,
-    0% 20%
-  );
 }
 
 .head-right button {
@@ -109,7 +110,7 @@ header a {
   border-radius: 10px;
   clip-path: inherit;
   cursor: pointer;
-  transition: 0.3s;
+  transition: .3s;
   &:hover {
     color: #7e00d2;
   }
@@ -142,7 +143,7 @@ header a {
 .hero-rings-img {
   top: 90px;
   height: 90%;
-  opacity: 0.4;
+  opacity: .4;
 }
 
 .hero-icons-img {
@@ -182,19 +183,9 @@ header a {
   background-color: #fff;
   border-radius: 10px;
   cursor: pointer;
-  clip-path: polygon(
-    0 0,
-    85% 0,
-    100% 35%,
-    100% 80%,
-    100% 100%,
-    0% 100%,
-    0% 80%,
-    0% 20%
-  );
-  transition: 0.3s;
+  transition: .3s;
   &:hover {
-    opacity: 0.7;
+    opacity: .7;
     color: #7e00d2;
   }
 }
@@ -228,7 +219,7 @@ header a {
 .hero-img-box .robot-box .robot-header {
   width: 100%;
   height: 30px;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, .3);
   backdrop-filter: blur(10px);
 }
 
@@ -241,13 +232,119 @@ header a {
   & img {
     width: 100%;
     border-radius: 15px;
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.432);
+    box-shadow: 0 0 15px rgba(255, 255, 255, .432);
   }
 }
 
-.hero-img-box .element1 { right: -15%; }
-.hero-img-box .element2 { left: -15%; }
+.hero-img-box .element1 {
+  right: -15%;
+}
+.hero-img-box .element2 {
+  left: -15%;
+}
 
 .parallax {
   transition: transform 1s linear;
+}
+
+.signin-page-box {
+  position: fixed;
+  top: 60%;
+  width: 30%;
+  height: 60vh;
+  opacity: 0;
+  filter: blur(10px);
+}
+
+.signin-page-box .close {
+  --a: 1;
+  position: absolute;
+  top: 3%;
+  right: 3%;
+  border: none;
+  font-size: 40px;
+  line-height: .8;
+  color: rgba(255,255,255,var(--a));
+  background: transparent;
+  cursor: pointer;
+  transition: .3s;
+  &:hover { --a: .7; }
+}
+
+.signin-page {
+  position: relative;
+  display: grid;
+  gap: 5%;
+  grid-template-columns: 100%;
+  justify-items: center;
+  align-content: center;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(14,12,21);
+  box-shadow: 0 0 15px rgba(255,255,255,.484);
+  border-radius: 20px;
+}
+
+.signin-page h3 {
+  text-transform: capitalize;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.signin-page input {
+  --corner-top: 92%;
+  --corner-right: 44%;
+  padding: 7.5px 30px;
+  background-color: lightgray;
+  width: 60%;
+  height: 40px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+}
+
+.signin-page button {
+  width: 50%;
+  height: 40px;
+  border: none;
+  text-transform: capitalize;
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+  background-color: #7e00d2;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.signin-page button.login {
+  background-color: gray;
+}
+
+.open-signin {
+  animation: open-signin .7s forwards;
+}
+
+@keyframes open-signin {
+  100% {
+    top: 25%;
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+.close-signin {
+  animation: close-signin .7s forwards;
+}
+
+@keyframes close-signin {
+  0% {
+    top: 25%;
+    opacity: 1;
+    filter: blur(0);
+  }
+  100% {
+    top: 60%;
+    opacity: 0;
+    filter: blur(10px);
+  }
 }
